@@ -20,11 +20,6 @@ public class MyServlet extends HttpServlet {
             request.setAttribute("side", size);
             pageRedirector("/secondpage.jsp", request, response);
         }
-//        else {
-//            HttpSession session = request.getSession();
-//            pageRedirector("/idex.jsp", request, response);
-//        }
-
     }
 
     private void pageRedirector(String page, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,10 +30,7 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-//        HttpSession session = request.getSession();
         pageRedirector("/index.jsp", request, response);
-
     }
 
     @Override

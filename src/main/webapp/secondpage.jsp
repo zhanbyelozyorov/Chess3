@@ -49,8 +49,6 @@
 }
     %>
                 "></td>
-        <%--<div style="display: inline;dwidth:500px;height:500px;border:1px solid #000;background-color: black;"/>--%>
-
         <%
             }
         %></tr>
