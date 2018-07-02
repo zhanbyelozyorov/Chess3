@@ -10,7 +10,7 @@
 <html>
 <style>
     table {
-        width: 100%;
+        width: 500px;
         table-layout: fixed;
     }
 
@@ -30,28 +30,40 @@
 </head>
 <body>
 <table STYLE="border:1px solid #000;">
-    <% if (request.getAttribute("side") != null) {
 
-        int length = Integer.parseInt((request.getAttribute("side").toString()));
-        String side = String.valueOf(100/length)+'%';
-        for (int i = 0; i < length; i++) {
+    <%
+        if (request.getAttribute("side") != null) {
+
+            int length = Integer.parseInt((request.getAttribute("side").toString()));
+            String side = String.valueOf(100 / length) + '%';
+            for (int i = 0; i < length; i++) {
     %>
     <tr><%
+
         for (int j = 0; j < length; j++) {
     %>
         <td style="
-            <% if ((i + j)%2 == 0) {%>
-                background-color: black;
-            <%} else {
-        %>
-                background-color: white;
             <%
-}
-    %>
-                "></td>
+            if ((i + j)%2 == 0) {
+                if(length%2 != 0){
+                  %>background-color: black;<%
+                }else {
+                    %>background-color: gray;<%
+                }
+            } else {
+                if(length%2 != 0){
+                  %>background-color: white;<%
+                }else {
+                    %>background-color: yellow;<%
+                }
+            }
+            %>">
+        </td>
         <%
             }
-        %></tr>
+
+        %>
+    </tr>
     <br/>
     <%
             }
