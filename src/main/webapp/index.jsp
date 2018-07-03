@@ -4,6 +4,14 @@
     <title>$Chess$</title>
 </head>
 <body>
+<%
+if (request.getAttribute("side") != null){
+    int length = Integer.parseInt((request.getAttribute("side").toString()));
+    if(length > 26 || length < 2){
+        %><h1 style="color:red;">Enter a number greater than 1 but not more than 26!</h1><%
+    }
+}
+%>
 <form METHOD="POST">
     <table  border="0" cellpadding="5">
         <tr>
