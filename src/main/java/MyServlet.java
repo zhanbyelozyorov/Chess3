@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/s")
+@WebServlet("")
 public class MyServlet extends HttpServlet {
 
     @Override

@@ -13,6 +13,12 @@
         width: 500px;
         table-layout: fixed;
     }
+    .border1{
+        border:4px solid black;
+    }
+    .border2{
+        border:4px solid gray;
+    }
 
     th, td {
         padding: 0;
@@ -24,50 +30,71 @@
         display: block;
         margin-top: 100%;
     }
+
+    .bgroundr1{
+        background-color:black;
+    }
+    .bgroundr2{
+        background-color:gray;
+    }
+    .bgroundr3{
+        background-color:white;
+    }
+    .bgroundr4{
+        background-color:yellow;
+    }
 </style>
 <head>
     <title>Chess board</title>
 </head>
 <body>
-<table STYLE="border:1px solid #000;">
-
-    <%
-        if (request.getAttribute("side") != null) {
-
-            int length = Integer.parseInt((request.getAttribute("side").toString()));
-            String side = String.valueOf(100 / length) + '%';
-            for (int i = 0; i < length; i++) {
-    %>
-    <tr><%
-
-        for (int j = 0; j < length; j++) {
-    %>
-        <td style="
-            <%
-            if ((i + j)%2 == 0) {
-                if(length%2 != 0){
-                  %>background-color: black;<%
-                }else {
-                    %>background-color: gray;<%
-                }
-            } else {
-                if(length%2 != 0){
-                  %>background-color: white;<%
-                }else {
-                    %>background-color: yellow;<%
-                }
-            }
-            %>">
-        </td>
+<% int length = Integer.parseInt((request.getAttribute("side").toString())); %>
+    <table
         <%
-            }
-
-        %>
-    </tr>
-    <br/>
-    <%
-            }
+        if(length%2 == 0){
+            %>
+            class="border2"
+            <%
+        }else {
+            %>
+            class="border1"
+            <%
         }
+       %>
+    >
+    <%
+    if (request.getAttribute("side") != null) {
+        String side = String.valueOf(100 / length) + '%';
+        for (int i = 0; i < length; i++) {
+            %><tr><%
+            for (int j = 0; j < length; j++) {
+                %>
+                <td
+                <%
+                if ((i + j)%2 == 0) {
+                    if(length%2 != 0){
+                      %>class="bgroundr1"<%
+                    }else {
+                      %>class="bgroundr2"<%
+                    }
+                } else {
+                    if(length%2 != 0){
+                      %>class="bgroundr3"<%
+                    }else {
+                        %>class="bgroundr4"<%
+                    }
+                }
+                %>
+                >
+                </td>
+                <%
+            }
+            %>
+            </tr>
+            <br/>
+            <%
+        }
+    }
     %>
 </table>
 </body>
